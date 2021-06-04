@@ -21,7 +21,7 @@ Clone this repository. Make sure you put a valid `iris.key` file in the folder `
 
 Run each script one after the other. Start with `1-create-cluster.sh`. This script will use k3d to create a simple Kubernetes cluster on your machine.
 
-Then run `2-deploy-iko.sh`. This script will deploy IKO on your cluster. We are using IKO version 2.1.0.66.
+Then run `2-deploy-iko.sh`. This script will deploy IKO on your cluster. We are using **IKO version 2.1.0.66**.
 
 When IKO is deployed and ready, run script `3-deploy-iris.sh`. This script will use the helm chart in this Git repository 
 to deploy IRIS in your cluster with the same configurations we are using on ours. You can change its values.yaml file to
@@ -30,3 +30,11 @@ told us that he thought would work.
 
 After you observe the issue, you can try again by running `helm delete test-iris` and waiting for the chart to be deleted from
 your cluster. Then run `3-deploy-iris.sh` again. This script will make sure the Persistent Volume Claims from a previous try are removing so you can start again.
+
+After some tests, if IKO stops responding and refuses to deploy IRIS, you can kill IKO's pod and it will get automatically recreated. After that, you can try again and IRIS will be deployed. I believe this is another issue we should be fixing. IKO will stop responding for some reason.
+
+# IRIS Images tested
+
+The following images have been tested:
+* 2021.2.0XDBCQD.105.0 - failed
+* 2021.2.0XDBC.158.0 - Succeeded!

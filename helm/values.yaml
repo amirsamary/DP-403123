@@ -15,7 +15,7 @@ mirrored: false
 image:
   registry: containers.intersystems.com
   repository: iscinternal/iris
-  tag: 2021.2.0XDBCQD.105.0
+  tag: 2021.2.0XDBC.158.0
 
 # This will be injected by the control plane:
 imagePullSecrets:
