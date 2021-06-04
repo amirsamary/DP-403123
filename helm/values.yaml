@@ -13,9 +13,9 @@ storageJournal2:
 
 mirrored: false
 image:
-  registry: containers.intersystems.com
-  repository: iscinternal/iris
-  tag: 2021.2.0XDBC.158.0
+  registry:  arti.iscinternal.com
+  repository: intersystems/iris
+  tag: 2021.1.0PYTHON.238.0
 
 # This will be injected by the control plane:
 imagePullSecrets:

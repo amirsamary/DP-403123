@@ -36,5 +36,6 @@ After some tests, if IKO stops responding and refuses to deploy IRIS, you can ki
 # IRIS Images tested
 
 The following images have been tested:
-* 2021.2.0XDBCQD.105.0 - failed
-* 2021.2.0XDBC.158.0 - Succeeded!
+* containers.intersystems.com/iscinternal/iris:2021.2.0XDBCQD.105.0 - failed
+* containers.intersystems.com/iscinternal/iris:2021.2.0XDBC.158.0 - Succeeded!
+* arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.238.0 - Succeeded!
