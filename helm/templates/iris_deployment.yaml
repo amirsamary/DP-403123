@@ -1,0 +1,44 @@
+apiVersion: intersystems.com/v1alpha1
+kind: IrisCluster
+metadata:
+  name: {{.Release.Name}}
+  namespace: {{.Release.Namespace}}
+spec:
+  passwordHash: '7afac819cadac82a119ceb4d40944572fb71b9d9,14s7p681'
+  licenseKeySecret:
+    name: iris-key-secret
+  topology:
+    data:
+      podTemplate:
+        spec:
+        {{- if .Values.imagePullSecrets }}
+          imagePullSecrets:      
+{{ toYaml .Values.imagePullSecrets | indent 10 }}
+        {{- end }}
+      mirrored: {{.Values.mirrored}}
+      image: {{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+      updateStrategy:
+        type: RollingUpdate
+      storageDB:
+        resources:
+          requests:
+            storage: {{.Values.storageDB.size}}
+        storageClassName: {{.Values.storageDB.storageClass}}
+      storageWIJ:
+        resources:
+          requests:
+            storage: {{.Values.storageWIJ.size}}
+        storageClassName: {{.Values.storageWIJ.storageClass}}
+      storageJournal1:
+        resources:
+          requests:
+            storage: {{.Values.storageJournal1.size}}
+        storageClassName: {{.Values.storageJournal1.storageClass}}
+      storageJournal2:
+        resources:
+          requests:
+            storage: {{.Values.storageJournal2.size}}
+        storageClassName: {{.Values.storageJournal2.storageClass}}
+  serviceTemplate:
+      spec:
+        type: ClusterIP

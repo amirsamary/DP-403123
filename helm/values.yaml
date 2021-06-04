@@ -1,0 +1,22 @@
+storageDB: 
+  size : 50Gi
+  storageClass : ssd-storageclass-1
+storageWIJ: 
+  size: 25Gi
+  storageClass : ssd-storageclass-1
+storageJournal1: 
+  size: 50Gi
+  storageClass : ssd-storageclass-1
+storageJournal2: 
+  size: 3Gi
+  storageClass : ssd-storageclass-1
+
+mirrored: false
+image:
+  registry: containers.intersystems.com
+  repository: iscinternal/iris
+  tag: 2021.2.0XDBCQD.105.0
+
+# This will be injected by the control plane:
+imagePullSecrets:
+ - name: intersystems-container-registry-secret
