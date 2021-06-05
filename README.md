@@ -36,6 +36,14 @@ After some tests, if IKO stops responding and refuses to deploy IRIS, you can ki
 # IRIS Images tested
 
 The following images have been tested:
-* containers.intersystems.com/iscinternal/iris:2021.2.0XDBCQD.105.0 - failed
-* containers.intersystems.com/iscinternal/iris:2021.2.0XDBC.158.0 - Succeeded!
-* arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.238.0 - Succeeded!
+* containers.intersystems.com/iscinternal/iris:2021.2.0XDBCQD.105.0
+  * Result: failed to redeploy
+* containers.intersystems.com/iscinternal/iris:2021.2.0XDBC.158.0
+  * Result: Succeeded to redeploy!
+* arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.238.0
+  * Result: Succeeded to redeploy! 
+  * But I am getting the error "#8 8.817 2021-06-05 03:05:22 0 IRISConfig.Installer: ERROR #5002: ObjectScript error: <OBJECT DISPATCH>zInstall+23^%SYS.Python.1 *Failed to load python!!" when trying to install PyYaml during image build.
+* arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.222.0
+  * Result: 
+
+

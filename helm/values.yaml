@@ -15,7 +15,7 @@ mirrored: false
 image:
   registry:  arti.iscinternal.com
   repository: intersystems/iris
-  tag: 2021.1.0PYTHON.238.0
+  tag: 2021.1.0PYTHON.222.0
 
 # This will be injected by the control plane:
 imagePullSecrets:
