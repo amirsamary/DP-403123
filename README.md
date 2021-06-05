@@ -44,6 +44,7 @@ The following images have been tested:
   * Result: Succeeded to redeploy! 
   * But I am getting the error "#8 8.817 2021-06-05 03:05:22 0 IRISConfig.Installer: ERROR #5002: ObjectScript error: <OBJECT DISPATCH>zInstall+23^%SYS.Python.1 *Failed to load python!!" when trying to install PyYaml during image build.
 * arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.222.0
-  * Result: 
+  * Result: Succeeded to redeploy!
+  * 
 
 
