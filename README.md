@@ -36,15 +36,28 @@ After some tests, if IKO stops responding and refuses to deploy IRIS, you can ki
 # IRIS Images tested
 
 The following images have been tested:
-* containers.intersystems.com/iscinternal/iris:2021.2.0XDBCQD.105.0
-  * Result: failed to redeploy
-* containers.intersystems.com/iscinternal/iris:2021.2.0XDBC.158.0
-  * Result: Succeeded to redeploy!
-* arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.238.0
-  * Result: Succeeded to redeploy! 
-  * But I am getting the error "#8 8.817 2021-06-05 03:05:22 0 IRISConfig.Installer: ERROR #5002: ObjectScript error: <OBJECT DISPATCH>zInstall+23^%SYS.Python.1 *Failed to load python!!" when trying to install PyYaml during image build.
-* arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.222.0
-  * Result: Succeeded to redeploy!
-  * When I tried to start the control plane IRIS will not start
+| Image | Successfully Patched in K8s | Python | Error | Final result
+|-|-|-|-|-|
+| containers.intersystems.com/iscinternal/iris:2021.2.0XDBCQD.105.0 | No | No || Failed
+| containers.intersystems.com/iscinternal/iris:2021.2.0XDBC.158.0 | Yes | No || Passed (without python)
+| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.222.0 | Yes | Yes | E1 | Failed
+| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.238.0 | Yes | Yes | E2 | Failed
+| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.254.0 | ? | Yes | E1 | Failed
+| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.259.0 | ? | Yes | E3 | Failed
+
+
+The column "Successfully Patched in K8s" means that we were able to deploy the image in K8s and then patch it successfully. This was the main issue we were facing. While investigating this proble, we were also trying to see if we could jump to a Embedded Python image as well. That is why we also have the column "Python" above to indicate that this image has embedded python. 
+
+The column "Error" refers to another error found when we were just trying to build the image:
+| Error # | Type | Error |
+|-|-|-|
+| E1 | Runtime | An error was encountered while initializing the system. Please see the clone.log and messages.log files in /usr/irissys/mgr/ and /irissys/data/IRIS/mgr.[ERROR] Command "iris start IRIS quietly" exited with status 256
+| E2 | Image build | IRISConfig.Installer: ERROR #5002: ObjectScript error: <OBJECT DISPATCH>zInstall+23^%SYS.Python.1 *Failed to load python!!" when trying to install PyYaml during image build. |
+| E3 | Image Build | ERROR #5002: ObjectScript error: zInstall+30^%SYS.Python.1^1^ *<class 'ImportError'>: */usr/irissys/lib/python3.8/lib-dynload/_struct.cpython-38-x86_64-linux-gnu.so: undefined symbol: PyFloat_Type - <class 'ImportError'>: /usr/irissys/lib/python3.8/lib-dynload/math.cpython-38-x86_64-linux-gnu.so: undefined symbol: PyFloat_Type - iris loader failed
+
+The "Runtime" error can be reproduced by running scripts 1 to 3 so that thei IRIS image is deployed in the Kubernetes cluster using helm.
+
+The "Image Build" error is reproduced by running the './build.sh' script in the **image** folder. But you may need to edit the 'build.sh' script to use the correct TAG.
+
 
 
