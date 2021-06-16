@@ -36,12 +36,12 @@ After some tests, if IKO stops responding and refuses to deploy IRIS, you can ki
 # IRIS Images tested
 
 The following images have been tested:
-| Image | Successfully Patched in K8s | Python | Error | Final result
+| Image | Solved DP-403123 | Has embedded Python | Error | Final result
 |-|-|-|-|-|
 | containers.intersystems.com/iscinternal/iris:2021.2.0XDBCQD.105.0 | No | No || Failed
 | containers.intersystems.com/iscinternal/iris:2021.2.0XDBC.158.0 | Yes | No || Passed (without python)
-| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.222.0 | Yes | Yes | E1 | Failed
-| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.238.0 | Yes | Yes | E2 | Failed
+| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.222.0 | ? | Yes | E1 | Failed
+| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.238.0 | ? | Yes | E2 | Failed
 | arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.254.0 | ? | Yes | E1 | Failed
 | arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.259.0 | ? | Yes | E3 | Failed
 
