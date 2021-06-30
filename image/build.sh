@@ -4,7 +4,7 @@ source ./buildtools.sh
 
 # TAG=2021.1.0PYTHON.222.0 # Image suggested by Bob K. Gives error when trying to start IRIS - But it doesn't upgrade well on K8s.
 # TAG=2021.1.0PYTHON.238.0 does not work. Gives us error "#8 8.817 ERROR #5002: ObjectScript error: <OBJECT DISPATCH>zInstall+23^%SYS.Python.1 *Failed to load python!!20210605-03:05:22:153710600 Error:" when trying to build the control plane
-TAG=2021.1.0PYTHON.259.0
+TAG=2021.1.0PYTHON.286.0
 
 LATEST_PYTHON_BUILD=$(docker-ls tags --registry https://arti.iscinternal.com  intersystems/iris | grep PYTHON | tail -1 | awk ' {print $2}')
 
