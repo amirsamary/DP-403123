@@ -16,7 +16,7 @@ trace "Creating network to avoid clashing with our VPN. "
 printf "\nDon't forget to configure your docker with \"bip\": \"192.168.200.0/16\"!"
 printf "\nYou may also need to add our intranet DNS with . \"dns\": [ \"172.17.15.53\", \"172.16.96.1\", \"8.8.8.8\"].\n"
 docker network rm k3d-net > /dev/null
-docker network create --driver=bridge --subnet=10.10.0.0/16 k3d-net
+docker network create --driver=bridge k3d-net
 
 trace "Creating simple cluster using k3d..."
 
