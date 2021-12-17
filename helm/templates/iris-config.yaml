@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: iris-config
+  namespace: default
+
+data:
+
+{{ if eq .Values.deploymentType "prod" }}
+    common.cpf: | 
+        [Startup]
+        SystemMode=LIVE
+        PasswordHash=bf1f59222b0693f3e2ad68b18c44eead9107f597,ierrbp5e
+
+        [config]
+        globals=0,0,512,0,0,0
+
+{{ else }}
+    common.cpf: | 
+        [Startup]
+        SystemMode=TEST
+        PasswordHash=bf1f59222b0693f3e2ad68b18c44eead9107f597,ierrbp5e
+        
+        [config]
+        globals=0,0,256,0,0,0
+
+{{end}}

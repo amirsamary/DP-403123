@@ -4,7 +4,8 @@ metadata:
   name: {{.Release.Name}}
   namespace: {{.Release.Namespace}}
 spec:
-  passwordHash: '7afac819cadac82a119ceb4d40944572fb71b9d9,14s7p681'
+  configSource:
+    name: iris-config
   licenseKeySecret:
     name: iris-key-secret
   topology:

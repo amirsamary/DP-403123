@@ -14,7 +14,8 @@ helm repo update
 exit_if_error "Helm update failed."
 
 msg "\nInstalling IKO...\n"
-helm install -f ./iko-sds-values.yaml -n "default" --version 2.1.66 intersystems-iris-operator sds/iris-operator
+# helm install -f ./iko-sds-values.yaml -n "default" --version 2.1.66 intersystems-iris-operator sds/iris-operator
+helm install -f ./iko-sds-values.yaml -n "default" --version 3.3.0 intersystems-iris-operator sds/iris-operator
 exit_if_error "Could not install IKO into your cluster using helm."
 
 trace "\nWaiting IKO to be ready."

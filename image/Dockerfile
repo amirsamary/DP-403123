@@ -4,6 +4,12 @@ FROM arti.iscinternal.com/intersystems/iris:${TAG}
 
 LABEL maintainer="Amir Samary <amir.samary@intersystems.com>"
 
+USER root
+RUN pip3 install pyyaml 
+
+# Going back to irisowner now
+USER irisowner
+
 ENV IRIS_PROJECT_FOLDER_NAME=src
 
 # Used to specify a folder on the container with the source code (csp pages, classes, etc.)

@@ -13,7 +13,7 @@ ClassMethod InstallPyYaml() As %Status
     Set tSC = $System.Status.OK()
     Try 
     {
-         Set tSC = ##class(%SYS.Python).Install("pyyaml")
+        #;  Set tSC = ##class(%SYS.Python).Install("pyyaml")
     } 
     Catch (oException)
 	{

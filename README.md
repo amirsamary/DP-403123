@@ -44,7 +44,8 @@ The following images have been tested:
 | arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.238.0 | ? | Yes | E2 | Failed
 | arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.254.0 | ? | Yes | E1 | Failed
 | arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.259.0 | ? | Yes | E3 | Failed
-
+| arti.iscinternal.com/intersystems/iris:2021.1.0PYTHON.286.0 | ? | Yes | E1 | Failed
+| arti.iscinternal.com/intersystems/iris:2021.2.0.619.0 | No | Yes | E1 | Failed
 
 The column "Successfully Patched in K8s" means that we were able to deploy the image in K8s and then patch it successfully. This was the main issue we were facing. While investigating this proble, we were also trying to see if we could jump to a Embedded Python image as well. That is why we also have the column "Python" above to indicate that this image has embedded python. 
 

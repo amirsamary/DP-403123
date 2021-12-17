@@ -1,15 +1,17 @@
+deploymentType: "prod"
+
 storageDB: 
   size : 50Gi
-  storageClass : ssd-storageclass-1
+  storageClass : local-path
 storageWIJ: 
   size: 25Gi
-  storageClass : ssd-storageclass-1
+  storageClass : local-path
 storageJournal1: 
   size: 50Gi
-  storageClass : ssd-storageclass-1
+  storageClass : local-path
 storageJournal2: 
   size: 3Gi
-  storageClass : ssd-storageclass-1
+  storageClass : local-path
 
 mirrored: false
 image:
