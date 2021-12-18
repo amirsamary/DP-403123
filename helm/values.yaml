@@ -17,7 +17,7 @@ mirrored: false
 image:
   registry:  containers.intersystems.com
   repository: iscinternal/sds/base_iris_triage
-  tag: 1.0.0
+  tag: 1.0.1
 
 # This will be injected by the control plane:
 imagePullSecrets:

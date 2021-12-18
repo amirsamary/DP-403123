@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $ISC_PACKAGE_INSTALLDIR/sds/imageBuildingUtils.sh
+source /sds/imageBuildingUtils.sh
 
 prepare_databases_for_writing;
 
